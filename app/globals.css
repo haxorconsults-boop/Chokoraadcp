@@ -58,8 +58,7 @@ body {
 
 /* ─── Navbar ─────────────────────────────────────────────────────────────────── */
 .navbar {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -1103,7 +1102,401 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ─── Election Countdown Banner (top of page) ─────────────────────────────── */
+.election-banner {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 10px 16px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 150;
+}
 
+.election-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.election-banner-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.countdown-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 36px;
+}
+
+.countdown-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+}
+
+.countdown-sep {
+  font-size: 1.1rem;
+  font-weight: 700;
+  opacity: 0.6;
+  margin-top: -10px;
+}
+
+/* ─── DCP Slogan Marquee ──────────────────────────────────────────────────── */
+.slogan-marquee {
+  background: var(--color-primary-muted);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+.slogan-track {
+  display: inline-flex;
+  gap: 48px;
+  animation: marquee 30s linear infinite;
+}
+
+.slogan-item {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── DCP Ad Banner ───────────────────────────────────────────────────────── */
+.dcp-ad-banner {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #4a0d13 100%);
+  padding: 32px 24px;
+  width: 100%;
+}
+
+.dcp-ad-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dcp-ad-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.dcp-ad-text {
+  flex: 1;
+  min-width: 200px;
+}
+
+.dcp-ad-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.dcp-ad-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.4;
+}
+
+.btn-cta-small {
+  padding: 12px 28px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  background: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-cta-small:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ─── Bottom CTA Section ──────────────────────────────────────────────────── */
+.bottom-cta-section {
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg2) 100%);
+  padding: 60px 24px 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.bottom-cta-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.bottom-cta-desc {
+  max-width: 550px;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.bottom-cta-desc strong {
+  color: var(--color-primary);
+}
+
+/* ─── Floating CTA Button ─────────────────────────────────────────────────── */
+.floating-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 120;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.95) 30%);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.floating-cta .btn-cta {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 -4px 20px rgba(111, 22, 30, 0.25), 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ─── Pulse Glow Animation ────────────────────────────────────────────────── */
+.pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 4px 6px rgba(111, 22, 30, 0.2); }
+  50% { box-shadow: 0 4px 24px rgba(111, 22, 30, 0.5), 0 0 40px rgba(111, 22, 30, 0.15); }
+}
+
+/* ─── Election Day Popup ──────────────────────────────────────────────────── */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  animation: fade-in 0.3s ease;
+}
+
+.popup-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background: var(--color-bg2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px 28px;
+  text-align: center;
+  animation: modal-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: var(--color-surface-hover);
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.popup-close:hover { background: var(--color-border); }
+
+.popup-flag {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.popup-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.popup-date {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.popup-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.popup-cd-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 56px;
+  padding: 12px 8px;
+  background: var(--color-primary-muted);
+  border: 1px solid rgba(111, 22, 30, 0.15);
+  border-radius: var(--radius-md);
+}
+
+.popup-cd-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.popup-cd-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+.popup-slogan {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* ─── Footer Updates ──────────────────────────────────────────────────────── */
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-slogan {
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ─── Responsive Overrides ────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .election-banner-inner {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .election-banner-label {
+    font-size: 0.75rem;
+  }
+  .countdown-num {
+    font-size: 1rem;
+  }
+  .navbar {
+    top: auto;
+  }
+  .dcp-ad-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .dcp-ad-title {
+    font-size: 1.1rem;
+  }
+  .hero-section {
+    padding-top: 40px;
+  }
+  .section-title {
+    font-size: 1.5rem;
+  }
+  .stats-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .stat-card {
+    width: 100%;
+    max-width: 300px;
+  }
+  .footer {
+    padding: 24px 20px 80px;
+    text-align: center;
+    justify-content: center;
+  }
+  .bottom-cta-section {
+    padding-bottom: 120px;
+  }
+  .poll-section {
+    padding-bottom: 100px;
+  }
+}
+
+/* Add bottom padding so floating CTA doesn't cover content */
+.landing-page {
+  padding-bottom: 80px;
+}
 
 /* ─── Responsive ─────────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
