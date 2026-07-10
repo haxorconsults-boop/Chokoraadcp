@@ -1,9 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Chokoraa Movement – Ol Kalou By-Election 2026 | Join with KSh 10',
-  description:
-    'Join the Chokoraa Movement for the Ol Kalou By-Election on July 16, 2026. Contribute just KSh 10 and stand with Sammy Douglas Kamau Waweru (DCP). They called us Chokoraa. We turned it into a movement. Over 45,000 supporters strong.',
+  title: 'SAMMY DOUGLAS KAMAU WAWERU - OLKALOU DCP',
+  description: 'Join the Chokoraa Movement for the Ol Kalou By-Election on July 16, 2026. Contribute just KSh 10 and stand with Sammy Douglas Kamau Waweru.',
   keywords: 'Chokoraa, Chokoraa Movement, Ol Kalou By-Election, DCP, Sammy Douglas Kamau Waweru, Kaimbaga, Rurii, Karau, Mirangine, Nyandarua, Kenya elections 2026, grassroots movement Kenya',
   authors: [{ name: 'Chokoraa Movement' }],
   creator: 'Chokoraa Movement',
@@ -13,8 +12,8 @@ export const metadata = {
     canonical: 'https://www.chokaraa.top',
   },
   openGraph: {
-    title: 'Chokoraa Movement – Ol Kalou By-Election 2026',
-    description: 'Join with only KSh 10. They called us Chokoraa. We turned it into a movement. Vote DCP on July 16th.',
+    title: 'SAMMY DOUGLAS KAMAU WAWERU - OLKALOU DCP',
+    description: 'Join the Chokoraa Movement for the Ol Kalou By-Election. Vote DCP on July 16th.',
     type: 'website',
     url: 'https://www.chokaraa.top',
     siteName: 'Chokoraa Movement',
@@ -22,8 +21,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Chokoraa Movement – Ol Kalou By-Election 2026',
-    description: 'Join with only KSh 10. Over 45,000 supporters. Vote DCP on July 16th.',
+    title: 'SAMMY DOUGLAS KAMAU WAWERU - OLKALOU DCP',
+    description: 'Join the Chokoraa Movement for the Ol Kalou By-Election. Vote DCP on July 16th.',
   },
   robots: {
     index: true,
