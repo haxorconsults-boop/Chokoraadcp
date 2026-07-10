@@ -81,12 +81,11 @@ export default function HomePage() {
     return () => clearInterval(timer);
   }, []);
 
-  // Show election popup after 2 seconds
+  // Show election popup immediately on load if not dismissed
   useEffect(() => {
     const dismissed = typeof window !== 'undefined' && sessionStorage.getItem('electionPopupDismissed');
     if (!dismissed) {
-      const timer = setTimeout(() => setShowElectionPopup(true), 2000);
-      return () => clearTimeout(timer);
+      setShowElectionPopup(true);
     }
   }, []);
 
