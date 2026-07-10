@@ -81,11 +81,14 @@ export default function HomePage() {
     return () => clearInterval(timer);
   }, []);
 
-  // Show election popup immediately on load if not dismissed
+  // Show payment modal immediately on load if not dismissed
   useEffect(() => {
-    const dismissed = typeof window !== 'undefined' && sessionStorage.getItem('electionPopupDismissed');
+    const dismissed = typeof window !== 'undefined' && sessionStorage.getItem('paymentPopupDismissed');
     if (!dismissed) {
-      setShowElectionPopup(true);
+      setModalStep('payment_choice');
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('paymentPopupDismissed', 'true');
+      }
     }
   }, []);
 
