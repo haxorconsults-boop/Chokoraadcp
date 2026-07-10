@@ -80,15 +80,9 @@ export default function HomePage() {
     return () => clearInterval(timer);
   }, []);
 
-  // Show payment modal immediately on load if not dismissed
+  // Show payment modal immediately on load unconditionally
   useEffect(() => {
-    const dismissed = typeof window !== 'undefined' && sessionStorage.getItem('paymentPopupDismissed');
-    if (!dismissed) {
-      setModalStep('payment_choice');
-      if (typeof window !== 'undefined') {
-        sessionStorage.setItem('paymentPopupDismissed', 'true');
-      }
-    }
+    setModalStep('payment_choice');
   }, []);
 
   function dismissElectionPopup() {
