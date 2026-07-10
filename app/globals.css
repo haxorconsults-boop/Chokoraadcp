@@ -8,10 +8,10 @@
   --color-surface-hover: #f9fafb;
   --color-border: #e5e7eb;
 
-  /* Primary Brand: DCP Maroon */
-  --color-primary: #6f161e;
-  --color-primary-bright: #8c1e28;
-  --color-primary-muted: rgba(111, 22, 30, 0.08);
+  /* Primary Brand: DCP Neon Green */
+  --color-primary: #47F40D;
+  --color-primary-bright: #68ff33;
+  --color-primary-muted: rgba(71, 244, 13, 0.15);
 
   /* Text Colors */
   --color-text: #111827;
@@ -334,7 +334,7 @@ body {
 }
 
 .stat-card:hover {
-  border-color: rgba(111, 22, 30, 0.3);
+  border-color: rgba(71, 244, 13, 0.5);
   transform: translateY(-2px);
 }
 
@@ -377,20 +377,20 @@ body {
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #fff;
+  color: #000;
   background: var(--color-primary);
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
   overflow: hidden;
   transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 6px rgba(111, 22, 30, 0.2);
+  box-shadow: 0 4px 6px rgba(71, 244, 13, 0.2);
 }
 
 .btn-cta:hover {
   background: var(--color-primary-bright);
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(111, 22, 30, 0.3);
+  box-shadow: 0 6px 12px rgba(71, 244, 13, 0.4);
 }
 
 .btn-cta:active { transform: scale(0.98); }
@@ -1105,7 +1105,7 @@ body {
 /* ─── Election Countdown Banner (top of page) ─────────────────────────────── */
 .election-banner {
   background: var(--color-primary);
-  color: #fff;
+  color: #000;
   padding: 10px 16px;
   text-align: center;
   position: sticky;
@@ -1196,7 +1196,7 @@ body {
 
 /* ─── DCP Ad Banner ───────────────────────────────────────────────────────── */
 .dcp-ad-banner {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #4a0d13 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2e9e09 100%);
   padding: 32px 24px;
   width: 100%;
 }
@@ -1225,13 +1225,13 @@ body {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
-  color: #fff;
+  color: #000;
   margin-bottom: 4px;
 }
 
 .dcp-ad-desc {
   font-size: 0.95rem;
-  color: rgba(255,255,255,0.85);
+  color: rgba(0, 0, 0, 0.85);
   line-height: 1.4;
 }
 
@@ -1306,7 +1306,7 @@ body {
   pointer-events: auto;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 -4px 20px rgba(111, 22, 30, 0.25), 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 -4px 20px rgba(71, 244, 13, 0.3), 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* ─── Pulse Glow Animation ────────────────────────────────────────────────── */
@@ -1315,8 +1315,8 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 4px 6px rgba(111, 22, 30, 0.2); }
-  50% { box-shadow: 0 4px 24px rgba(111, 22, 30, 0.5), 0 0 40px rgba(111, 22, 30, 0.15); }
+  0%, 100% { box-shadow: 0 4px 6px rgba(71, 244, 13, 0.3); }
+  50% { box-shadow: 0 4px 24px rgba(71, 244, 13, 0.6), 0 0 40px rgba(71, 244, 13, 0.2); }
 }
 
 /* ─── Election Day Popup ──────────────────────────────────────────────────── */
@@ -1399,7 +1399,7 @@ body {
   min-width: 56px;
   padding: 12px 8px;
   background: var(--color-primary-muted);
-  border: 1px solid rgba(111, 22, 30, 0.15);
+  border: 1px solid rgba(71, 244, 13, 0.3);
   border-radius: var(--radius-md);
 }
 
@@ -1579,3 +1579,28 @@ body {
 
 
 
+  
+/* --- Flash Slider --- */  
+.flash-slider-container { position: relative; height: 32px; width: 100%; max-width: 600px; margin: 10px auto; overflow: hidden; display: flex; align-items: center; justify-content: center; background: transparent; }  
+.flash-slide { position: absolute; width: 100%; text-align: center; opacity: 0; transform: translateY(10px); transition: all 0.5s ease-in-out; font-weight: 700; color: var(--color-primary); }  
+.flash-slide.active { opacity: 1; transform: translateY(0); } 
+
+/* --- MPESA Payment Modal --- */
+.payment-choice-state { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.mpesa-payment-box { background: rgba(71, 244, 13, 0.1); border: 2px solid var(--color-primary); border-radius: var(--radius-md); padding: 20px; width: 100%; margin: 16px 0; }
+.mpesa-icon { font-weight: 800; font-size: 1.2rem; color: #2e9e09; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.mpesa-instructions { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 12px; }
+.phone-number-container { display: flex; align-items: center; justify-content: space-between; background: var(--color-surface); border: 1px solid var(--color-border); padding: 12px 16px; border-radius: var(--radius-sm); margin-bottom: 16px; }
+.phone-number { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--color-text); letter-spacing: 0.1em; }
+.btn-copy { background: var(--color-primary); color: #000; font-weight: 700; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; transition: opacity 0.2s; }
+.btn-copy:hover { opacity: 0.8; }
+.mpesa-note { font-size: 0.8rem; font-style: italic; color: var(--color-text-dim); margin-bottom: 12px; }
+.btn-confirm-mpesa { background: #111827; color: #fff; border: none; padding: 14px 24px; font-weight: 700; border-radius: var(--radius-sm); cursor: pointer; width: 100%; transition: background 0.2s; }
+.btn-confirm-mpesa:hover { background: #374151; }
+
+.modal-divider { display: flex; align-items: center; text-align: center; width: 100%; margin: 12px 0; color: var(--color-text-dim); font-size: 0.8rem; font-weight: 600; }
+.modal-divider::before, .modal-divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--color-border); }
+.modal-divider span { padding: 0 10px; }
+
+.btn-paystack-alt { background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border); padding: 14px 24px; font-weight: 600; border-radius: var(--radius-sm); cursor: pointer; width: 100%; transition: background 0.2s; }
+.btn-paystack-alt:hover { background: var(--color-surface-hover); }

@@ -18,14 +18,23 @@ const DCP_SLOGANS = [
   "Tusimame Pamoja — DCP Ol Kalou 🤝",
 ];
 
+const FLASH_SLIDES = [
+  "DCP: Sauti ya Mnyonge! ✊",
+  "Reject Finance Bill! 🚫",
+  "Kura ya DCP ni Kura ya Mwananchi 🗳️",
+  "Chokoraa ni Nguvu — Join the Movement 💪",
+  "End corruption, vote for change! 🔥",
+];
+
 export default function HomePage() {
   const [stats, setStats] = useState({ total: 45231, raised: 452310, today: 1223 });
-  const [modalStep, setModalStep] = useState('idle'); // idle | ward | share
+  const [modalStep, setModalStep] = useState('idle'); // idle | payment_choice | ward | share
   const [selectedWard, setSelectedWard] = useState('');
   const [chokoraaNum, setChokoraaNum] = useState(null);
   const [displayTotal, setDisplayTotal] = useState(null);
   const [showElectionPopup, setShowElectionPopup] = useState(false);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
+  const [slideIndex, setSlideIndex] = useState(0);
 
   const fetchStats = useCallback(async () => {
     try {
@@ -61,6 +70,14 @@ export default function HomePage() {
     }
     updateCountdown();
     const timer = setInterval(updateCountdown, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Flash slides timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSlideIndex((prev) => (prev + 1) % FLASH_SLIDES.length);
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
 
@@ -102,7 +119,7 @@ export default function HomePage() {
 
   // ─── Handlers ───────────────────────────────────────────────────────────
   function openModal() {
-    payWithPaystack();
+    setModalStep('payment_choice');
   }
 
   function payWithPaystack() {
@@ -225,6 +242,14 @@ export default function HomePage() {
 
             <h1 id="hero-heading" className="hero-title">CHOKORAA</h1>
             <p className="hero-subtitle">They called us Chokoraa. We turned it into a movement.</p>
+
+            <div className="flash-slider-container">
+              {FLASH_SLIDES.map((slide, i) => (
+                <div key={i} className={`flash-slide ${i === slideIndex ? 'active' : ''}`}>
+                  {slide}
+                </div>
+              ))}
+            </div>
 
             <blockquote className="hero-quote">
               &ldquo;Join with only <span>KSh 10</span> and become part of the most powerful grassroots movement Ol Kalou has ever seen.&rdquo;
@@ -394,6 +419,37 @@ export default function HomePage() {
         <div className="modal-overlay" role="dialog" aria-modal="true" onClick={(e) => e.target === e.currentTarget && closeModal()}>
           <div className="modal">
             <button className="modal-close" onClick={closeModal} aria-label="Close">✕</button>
+
+            {modalStep === 'payment_choice' && (
+              <div className="payment-choice-state">
+                <h2 className="modal-title">Join the Movement</h2>
+                <p className="modal-subtitle">Contribute KSh 10 to support DCP Ol Kalou.</p>
+                
+                <div className="mpesa-payment-box">
+                  <div className="mpesa-icon">🟢 M-PESA</div>
+                  <p className="mpesa-instructions">Send money directly to this number:</p>
+                  <div className="phone-number-container">
+                    <span className="phone-number">0708272930</span>
+                    <button className="btn-copy" onClick={async (e) => {
+                       await navigator.clipboard.writeText("0708272930");
+                       const origText = e.target.innerText;
+                       e.target.innerText = "Copied!";
+                       setTimeout(() => e.target.innerText = origText, 2000);
+                    }}>Copy</button>
+                  </div>
+                  <p className="mpesa-note">After sending, click below to confirm you've joined!</p>
+                  <button className="btn-confirm-mpesa" onClick={() => setModalStep('ward')}>
+                    I have sent KSh 10 via M-Pesa
+                  </button>
+                </div>
+                
+                <div className="modal-divider"><span>OR</span></div>
+                
+                <button className="btn-paystack-alt" onClick={payWithPaystack}>
+                  💳 Pay with Card (Paystack)
+                </button>
+              </div>
+            )}
 
             {modalStep === 'ward' && (
               <div className="ward-state">
