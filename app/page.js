@@ -8,22 +8,22 @@ const SITE_URL = 'https://www.chokaraa.top';
 const ELECTION_DATE = new Date('2026-07-16T06:00:00+03:00'); // Election day, polling opens 6am EAT
 
 const DCP_SLOGANS = [
-  "Kura ya DCP ni Kura ya Mwananchi 🗳️",
-  "Chokoraa ni Nguvu — Join the Movement 💪",
-  "Ol Kalou Inasimama na DCP 🏴",
-  "KSh 10 Inabadilisha Historia ✊",
-  "Sisi ni Wengi, Sisi ni Chokoraa 🔥",
-  "July 16th — Piga Kura DCP ✅",
-  "Mtu Wetu, Sammy Douglas Kamau Waweru 🌟",
-  "Tusimame Pamoja — DCP Ol Kalou 🤝",
+  "Kura ya DCP ni Kura ya Mwananchi",
+  "Chokoraa ni Nguvu — Join the Movement",
+  "Ol Kalou Inasimama na DCP",
+  "KSh 10 Inabadilisha Historia",
+  "Sisi ni Wengi, Sisi ni Chokoraa",
+  "July 16th — Piga Kura DCP",
+  "Mtu Wetu, Sammy Douglas Kamau Waweru",
+  "Tusimame Pamoja — DCP Ol Kalou",
 ];
 
 const FLASH_SLIDES = [
-  "DCP: Sauti ya Mnyonge! ✊",
-  "Reject Finance Bill! 🚫",
-  "Kura ya DCP ni Kura ya Mwananchi 🗳️",
-  "Chokoraa ni Nguvu — Join the Movement 💪",
-  "End corruption, vote for change! 🔥",
+  "DCP: Sauti ya Mnyonge!",
+  "Reject Finance Bill!",
+  "Kura ya DCP ni Kura ya Mwananchi",
+  "Chokoraa ni Nguvu — Join the Movement",
+  "End corruption, vote for change!",
 ];
 
 export default function HomePage() {
@@ -176,7 +176,7 @@ export default function HomePage() {
       {/* ── Sticky Election Countdown Banner ── */}
       <div className="election-banner" role="banner">
         <div className="election-banner-inner">
-          <span className="election-banner-label">🗳️ Election Day — July 16, 2026</span>
+          <span className="election-banner-label">Election Day — July 16, 2026</span>
           <div className="countdown-row">
             <div className="countdown-unit">
               <span className="countdown-num">{countdown.days}</span>
@@ -226,7 +226,6 @@ export default function HomePage() {
         <section className="hero-section" aria-labelledby="hero-heading">
           <div className="hero-content">
             <div className="hero-tag">
-              <span className="hero-tag-icon">🏴</span>
               <span>The People&apos;s Movement — 2026</span>
             </div>
 
@@ -273,7 +272,6 @@ export default function HomePage() {
         {/* ── DCP Ad Banner ── */}
         <section className="dcp-ad-banner" aria-label="DCP Campaign Message">
           <div className="dcp-ad-content">
-            <div className="dcp-ad-icon">🗳️</div>
             <div className="dcp-ad-text">
               <h2 className="dcp-ad-title">Piga Kura DCP — July 16th</h2>
               <p className="dcp-ad-desc">Sammy Douglas Kamau Waweru ni mtu wa wananchi. Tusimame naye!</p>
@@ -356,7 +354,6 @@ export default function HomePage() {
             Be part of history — contribute KSh 10 and stand with DCP on July 16th.
           </p>
           <button className="btn-cta pulse-glow" onClick={openModal}>
-            <span>✊</span>
             <span>JIUNGE SASA — KSH 10</span>
           </button>
         </section>
@@ -367,7 +364,7 @@ export default function HomePage() {
       <footer className="footer" role="contentinfo">
         <div className="footer-inner">
           <p className="footer-text">© 2026 Chokoraa Movement · Ol Kalou By-Election · DCP</p>
-          <p className="footer-slogan">Kura ya DCP ni Kura ya Mwananchi 🗳️</p>
+          <p className="footer-slogan">Kura ya DCP ni Kura ya Mwananchi</p>
         </div>
       </footer>
 
@@ -379,7 +376,6 @@ export default function HomePage() {
           onClick={openModal}
           aria-label="Join the Chokoraa Movement for KSh 10"
         >
-          <span>🔥</span>
           <span>JOIN THE MOVEMENT — KSH 10</span>
         </button>
       </div>
@@ -389,7 +385,6 @@ export default function HomePage() {
         <div className="popup-overlay" onClick={(e) => e.target === e.currentTarget && dismissElectionPopup()}>
           <div className="popup-card election-popup">
             <button className="popup-close" onClick={dismissElectionPopup} aria-label="Close">✕</button>
-            <div className="popup-flag">🗳️</div>
             <h2 className="popup-title">Election Day is Coming!</h2>
             <p className="popup-date">July 16, 2026</p>
             <div className="popup-countdown">
@@ -408,7 +403,7 @@ export default function HomePage() {
             </div>
             <p className="popup-slogan">&ldquo;Piga Kura DCP — Mtu Wetu Sammy Douglas&rdquo;</p>
             <button className="btn-cta" onClick={() => { dismissElectionPopup(); openModal(); }} style={{ width: '100%', marginTop: '16px' }}>
-              🔥 JOIN THE MOVEMENT — KSH 10
+              JOIN THE MOVEMENT — KSH 10
             </button>
           </div>
         </div>
@@ -426,7 +421,7 @@ export default function HomePage() {
                 <p className="modal-subtitle">Contribute KSh 10 to support DCP Ol Kalou.</p>
                 
                 <div className="mpesa-payment-box">
-                  <div className="mpesa-icon">🟢 M-PESA</div>
+                  <div className="mpesa-icon">M-PESA</div>
                   <p className="mpesa-instructions">Send money directly to this number:</p>
                   <div className="phone-number-container">
                     <span className="phone-number">0708272930</span>
@@ -446,14 +441,13 @@ export default function HomePage() {
                 <div className="modal-divider"><span>OR</span></div>
                 
                 <button className="btn-paystack-alt" onClick={payWithPaystack}>
-                  💳 Pay with Card (Paystack)
+                  Pay with Card (Paystack)
                 </button>
               </div>
             )}
 
             {modalStep === 'ward' && (
               <div className="ward-state">
-                <div className="success-tick">✅</div>
                 <h2 className="modal-title">Asante Chokoraa!</h2>
                 <p className="modal-subtitle">Payment confirmed. You&apos;re officially part of the movement.</p>
                 <h3 className="ward-question">Which ward are you from?</h3>
@@ -482,10 +476,10 @@ export default function HomePage() {
                   <p className="chokoraa-label">You are officially</p>
                   <div className="chokoraa-num-display">CHOKORAA #{chokoraaNum?.toLocaleString() || liveTotal.toLocaleString()}</div>
                 </div>
-                <h2 className="share-title">🎉 Hongera!</h2>
+                <h2 className="share-title">Hongera!</h2>
                 <p className="share-subtitle">Welcome to the movement. Share on WhatsApp and recruit more Chokoraas!</p>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
-                  <span className="wa-icon">💬</span> Share on WhatsApp
+                  Share on WhatsApp
                 </a>
               </div>
             )}
