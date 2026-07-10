@@ -55,6 +55,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Hardcoded OG tags for WhatsApp/social crawlers that don't execute JS */}
+        <meta property="og:title" content="SAMMY DOUGLAS KAMAU WAWERU - OLKALOU DCP" />
+        <meta property="og:description" content="Join the Chokoraa Movement for the Ol Kalou By-Election. Vote DCP on July 16th." />
+        <meta property="og:url" content="https://www.chokaraa.top" />
+        <meta property="og:site_name" content="SAMMY DOUGLAS KAMAU WAWERU - OLKALOU DCP" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.chokaraa.top/candidate-face.png" />
+        <meta property="og:image:width" content="500" />
+        <meta property="og:image:height" content="500" />
+        <meta property="og:image:alt" content="Sammy Douglas Kamau Waweru" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="SAMMY DOUGLAS KAMAU WAWERU - OLKALOU DCP" />
+        <meta name="twitter:description" content="Join the Chokoraa Movement for the Ol Kalou By-Election. Vote DCP on July 16th." />
+        <meta name="twitter:image" content="https://www.chokaraa.top/candidate-face.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
