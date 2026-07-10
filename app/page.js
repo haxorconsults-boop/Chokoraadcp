@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import Script from 'next/script';
 
 const WARDS = ['Kaimbaga', 'Rurii', 'Karau', 'Mirangine'];
 const SITE_URL = 'https://www.chokaraa.top';
@@ -124,31 +123,6 @@ export default function HomePage() {
     setModalStep('payment_choice');
   }
 
-  function payWithPaystack() {
-    if (typeof window === 'undefined' || !window.PaystackPop) {
-      alert("Payment system is loading, please try again in a second.");
-      return;
-    }
-
-    const paystack = new window.PaystackPop();
-    paystack.newTransaction({
-      key: 'pk_test_bc37bd7729c674fabbd651273dec9feeebd6fc19',
-      email: 'donor@chokoraa.co.ke',
-      amount: 10 * 100,
-      currency: 'KES',
-      onSuccess: (transaction) => {
-        const num = (stats.total || 0) + 1;
-        setChokoraaNum(num);
-        setDisplayTotal(num);
-        fetchStats();
-        setModalStep('ward');
-      },
-      onCancel: () => {
-        console.log('Payment cancelled');
-      }
-    });
-  }
-
   function closeModal() {
     setModalStep('idle');
     setSelectedWard('');
@@ -173,7 +147,6 @@ export default function HomePage() {
 
   return (
     <div className="page-wrapper">
-      <Script src="https://js.paystack.co/v1/inline.js" strategy="lazyOnload" />
       
       {/* ── Sticky Election Countdown Banner ── */}
       <div className="election-banner" role="banner">
@@ -439,12 +412,6 @@ export default function HomePage() {
                     I have sent KSh 10 via M-Pesa
                   </button>
                 </div>
-                
-                <div className="modal-divider"><span>OR</span></div>
-                
-                <button className="btn-paystack-alt" onClick={payWithPaystack}>
-                  Pay with Card (Paystack)
-                </button>
               </div>
             )}
 
