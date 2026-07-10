@@ -18,11 +18,20 @@ export const metadata = {
     url: 'https://www.chokaraa.top',
     siteName: 'Chokoraa Movement',
     locale: 'en_KE',
+    images: [
+      {
+        url: 'https://www.chokaraa.top/candidate-face.png',
+        width: 500,
+        height: 500,
+        alt: 'Sammy Douglas Kamau Waweru',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'SAMMY DOUGLAS KAMAU WAWERU - OLKALOU DCP',
     description: 'Join the Chokoraa Movement for the Ol Kalou By-Election. Vote DCP on July 16th.',
+    images: ['https://www.chokaraa.top/candidate-face.png'],
   },
   robots: {
     index: true,
